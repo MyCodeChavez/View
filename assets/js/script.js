@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const projectsContainer = document.getElementById('projects-container');
-    const username = 'brayni1204';
+    const username = 'MyCodeChavez';
     const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`;
 
     fetch(apiUrl)
