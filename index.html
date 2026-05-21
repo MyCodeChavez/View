@@ -27,20 +27,21 @@
     <!-- Alien Custom Particle Cursor Trail -->
     <div id="cursor-particle-container" class="fixed top-0 left-0 w-full h-full pointer-events-none z-50"></div>
 
-    <!-- Ambient Grid & Sound controller panel -->
-    <div class="fixed top-4 right-4 z-50 flex items-center gap-3">
-        <!-- Sound Synthesizer Controller -->
-        <button id="audio-toggle" class="glass-panel px-4 py-2 rounded-full font-scifi text-xs text-cyan-400 flex items-center gap-2 hover:bg-cyan-950/40 transition-all border border-cyan-500/30 shadow-[0_0_10px_rgba(0,240,255,0.2)]">
-            <span id="audio-status-pulse" class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse"></span>
-            <span id="audio-text">AUDIO: MUTED</span>
-            <i id="audio-icon" class="fa-solid fa-volume-mute ml-2"></i>
-        </button>
-
-        <!-- Galaxy Coordinates System -->
-        <div class="hidden md:flex glass-panel px-4 py-2 rounded-full font-terminal text-xs text-green-400 gap-1 border border-green-500/20">
+    <!-- Galaxy Coordinates System (Floating cockpit HUD - Desktop Only) -->
+    <div class="fixed top-6 right-6 z-40 hidden md:flex items-center gap-3">
+        <div class="glass-panel px-4 py-2 rounded-full font-terminal text-xs text-green-400 gap-1 border border-green-500/20 shadow-[0_0_10px_rgba(57,255,20,0.1)]">
             <span class="text-green-500 font-bold">COORDINATES:</span>
             <span id="coords-text">X: 194.2 // Y: 554.1</span>
         </div>
+    </div>
+
+    <!-- Persistent Ambient Sound Synthesizer FAB (Thumb-friendly floating control) -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button id="audio-toggle" class="glass-panel px-4 py-3 rounded-full font-scifi text-xs text-cyan-400 flex items-center gap-2.5 hover:bg-cyan-950/60 hover:scale-105 active:scale-95 transition-all border border-cyan-500/40 shadow-[0_0_15px_rgba(0,240,255,0.35)]">
+            <span id="audio-status-pulse" class="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse shadow-[0_0_8px_#ef4444]"></span>
+            <span id="audio-text" class="hidden sm:inline tracking-wider">AUDIO: MUTED</span>
+            <i id="audio-icon" class="fa-solid fa-volume-mute"></i>
+        </button>
     </div>
 
     <!-- Galactic HUD Navigation -->
@@ -58,7 +59,7 @@
                 </div>
             </div>
 
-            <ul class="flex items-center gap-4 md:gap-8 font-scifi text-xs tracking-wider">
+            <ul class="flex flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-8 font-scifi text-[11px] sm:text-xs tracking-wider">
                 <li><a href="#biography" onclick="playBeep(440, 0.1)" class="text-slate-300 hover:text-cyan-400 transition-colors uppercase">Biometria</a></li>
                 <li><a href="#anomalies" onclick="playBeep(520, 0.1)" class="text-slate-300 hover:text-cyan-400 transition-colors uppercase">Anomalías (Proyectos)</a></li>
                 <li><a href="#console-section" onclick="playBeep(600, 0.1)" class="text-slate-300 hover:text-cyan-400 transition-colors uppercase">Consola</a></li>
@@ -78,10 +79,10 @@
                     HOLOGRAPHIC BROADCAST DETECTED
                 </div>
 
-                <div class="space-y-2">
-                    <h2 class="text-sm font-terminal text-cyan-400 tracking-widest uppercase">Greetings Earthling / Bienvenido</h2>
-                    <h3 class="text-4xl md:text-6xl font-scifi font-black tracking-tight leading-tight text-white uppercase">
-                        Codificando realidades de <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-green-400 glitch-active">Otro Planeta</span>
+                <div class="space-y-3 select-none">
+                    <h2 class="text-xs sm:text-sm font-terminal text-cyan-400 tracking-widest uppercase animate-pulse">Greetings Earthling / Bienvenido</h2>
+                    <h3 class="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-scifi font-black tracking-wide leading-tight text-white uppercase">
+                        Codificando realidades de <span class="premium-gradient-text glitch-active">Otro Planeta</span>
                     </h3>
                 </div>
 
@@ -112,16 +113,16 @@
             </div>
 
             <!-- Right Visual Panel: 3D Quantum Portal Information -->
-            <div class="lg:col-span-5 flex flex-col items-center justify-center order-1 lg:order-2">
-                <div class="relative w-full aspect-square max-w-[400px] flex items-center justify-center">
+            <div class="lg:col-span-5 flex flex-col items-center justify-center order-1 lg:order-2 my-8 lg:my-0">
+                <div class="relative w-[280px] h-[280px] xs:w-[320px] xs:h-[320px] sm:w-[400px] sm:h-[400px] flex items-center justify-center transition-all duration-300">
                     <!-- Rotating Cosmic Ring -->
                     <div class="absolute w-full h-full border-2 border-dashed border-cyan-500/20 rounded-full animate-spin-slow"></div>
                     <div class="absolute w-[80%] h-[80%] border border-purple-500/30 rounded-full animate-spin-reverse"></div>
                     
                     <!-- Alien Biosphere Core Status Widget -->
-                    <div class="absolute -bottom-6 glass-panel py-2 px-4 rounded-xl text-center border border-cyan-400/30">
+                    <div class="absolute -bottom-6 glass-panel py-2 px-4 rounded-xl text-center border border-cyan-400/30 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
                         <span class="font-scifi text-[10px] tracking-wider text-cyan-400 block">ANOMALÍA ESPACIAL</span>
-                        <span id="quantum-energy-readout" class="font-terminal text-sm text-green-400 font-bold">CARGANDO NÚCLEO...</span>
+                        <span id="quantum-energy-readout" class="font-terminal text-xs sm:text-sm text-green-400 font-bold">CARGANDO NÚCLEO...</span>
                     </div>
                     
                     <!-- The actual portal interactive element hints -->
@@ -134,11 +135,11 @@
         </section>
 
         <!-- SECTION 2: BIOMETRIC READOUT & NEON POWER LEVELS -->
-        <section id="biography" class="py-20 border-t border-cyan-500/10">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <section id="biography" class="py-12 sm:py-20 border-t border-cyan-500/10">
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4 px-4">
                 <h2 class="font-scifi text-cyan-400 tracking-widest text-xs font-bold uppercase">🧬 BIOMETRIC DATA</h2>
-                <h3 class="font-scifi text-3xl md:text-4xl font-extrabold text-white">NÚCLEO DE PODER Y COMPOSICIÓN</h3>
-                <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
+                <h3 class="font-scifi text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-wide uppercase">NÚCLEO DE PODER Y COMPOSICIÓN</h3>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full shadow-[0_0_8px_rgba(0,240,255,0.5)]"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
@@ -227,12 +228,12 @@
         </section>
 
         <!-- SECTION 3: GALACTIC ANOMALIES (PROJECTS) -->
-        <section id="anomalies" class="py-20 border-t border-cyan-500/10">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <section id="anomalies" class="py-12 sm:py-20 border-t border-cyan-500/10">
+            <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-4 px-4">
                 <h2 class="font-scifi text-cyan-400 tracking-widest text-xs font-bold uppercase">📡 GALACTIC ARCHIVES</h2>
-                <h3 class="font-scifi text-3xl md:text-4xl font-extrabold text-white">PROYECTOS INTERESTELARES</h3>
-                <p class="text-slate-400 font-sans text-sm">Explora anomalías creadas e implantadas en la realidad web.</p>
-                <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
+                <h3 class="font-scifi text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-wide uppercase">PROYECTOS INTERESTELARES</h3>
+                <p class="text-slate-400 font-sans text-xs sm:text-sm">Explora anomalías creadas e implantadas en la realidad web.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full shadow-[0_0_8px_rgba(0,240,255,0.5)]"></div>
             </div>
 
             <!-- Grid of amazing futuristic cards -->
@@ -332,12 +333,12 @@
         </section>
 
         <!-- SECTION 4: DECODING TERMINAL HACKER CONSOLE -->
-        <section id="console-section" class="py-20 border-t border-cyan-500/10">
-            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
+        <section id="console-section" class="py-12 sm:py-20 border-t border-cyan-500/10">
+            <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-12 space-y-4 px-4">
                 <h2 class="font-scifi text-cyan-400 tracking-widest text-xs font-bold uppercase">💻 INTERACTIVE QUANTUM DECODER</h2>
-                <h3 class="font-scifi text-3xl md:text-4xl font-extrabold text-white">CONSOLA CENTRAL HACKER</h3>
-                <p class="text-slate-400 font-sans text-sm">Prueba tus dotes de explorador. Envía comandos al mainframe para interactuar en tiempo real.</p>
-                <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full"></div>
+                <h3 class="font-scifi text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-wide uppercase">CONSOLA CENTRAL HACKER</h3>
+                <p class="text-slate-400 font-sans text-xs sm:text-sm">Prueba tus dotes de explorador. Envía comandos al mainframe para interactuar en tiempo real.</p>
+                <div class="w-24 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 mx-auto rounded-full shadow-[0_0_8px_rgba(0,240,255,0.5)]"></div>
             </div>
 
             <!-- Terminal Wrapper -->
@@ -362,10 +363,12 @@
                 </div>
 
                 <!-- Terminal input wrapper -->
-                <div class="bg-slate-950 px-6 py-4 border-t border-cyan-400/20 flex items-center gap-3">
-                    <span class="font-terminal text-base text-cyan-400 font-bold">$ alien_guest_></span>
-                    <input type="text" id="terminal-input" placeholder="Ingresa un comando alienígena aquí..." class="bg-transparent border-none outline-none flex-grow font-terminal text-base text-white placeholder-slate-600 focus:ring-0">
-                    <button id="terminal-execute-btn" class="glass-panel text-cyan-400 px-4 py-2 rounded-xl text-xs font-scifi uppercase hover:bg-cyan-950/40">Transmitir</button>
+                <div class="bg-slate-950 px-4 sm:px-6 py-4 border-t border-cyan-400/20 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <div class="flex items-center gap-2">
+                        <span class="font-terminal text-sm sm:text-base text-cyan-400 font-bold">$ alien_guest_></span>
+                    </div>
+                    <input type="text" id="terminal-input" placeholder="Ingresa un comando alienígena..." class="bg-transparent border-none outline-none flex-grow font-terminal text-sm sm:text-base text-white placeholder-slate-600 focus:ring-0 py-1">
+                    <button id="terminal-execute-btn" class="glass-panel text-cyan-400 px-4 py-2 rounded-xl text-xs font-scifi uppercase hover:bg-cyan-950/40 text-center">Transmitir</button>
                 </div>
             </div>
         </section>
@@ -381,8 +384,8 @@
                         SIGNAL BEACON
                     </div>
                     
-                    <h3 class="font-scifi text-3xl md:text-4xl font-extrabold text-white uppercase">ENVIAR SEÑAL</h3>
-                    <p class="text-slate-300 leading-relaxed">
+                    <h3 class="font-scifi text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-wide uppercase">ENVIAR SEÑAL</h3>
+                    <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
                         ¿Quieres establecer contacto permanente, iniciar una abducción creativa o proponer un proyecto en la Tierra? Envíame una transmisión de alta frecuencia y me comunicaré contigo desde mi órbita.
                     </p>
 
