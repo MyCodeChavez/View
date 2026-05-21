@@ -1,4 +1,4 @@
-# MyCodeChavez Portfolio 🚀
+# Brayni Chavez Portfolio 🚀
 
 Este es el portafolio personal de **MyCodeChavez**, un desarrollador web creativo enfocado en experiencias interactivas y modernas.
 
